@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "187783568519",
+    "project_id": "virtual-dukan-b41aa",
+    "storage_bucket": "virtual-dukan-b41aa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:187783568519:android:4f54f72a175a76e161ac22",
+        "android_client_info": {
+          "package_name": "com.n2c.virtual_dukan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "187783568519-5ftma8uat8u124fr25knncm83fshksjt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.n2c.virtual_dukan",
+            "certificate_hash": "20a4d4b21675a3d865787a69016684b53371110b"
+          }
+        },
+        {
+          "client_id": "187783568519-29qd1r6lpnbn9cqbcidkn22ssat8iur0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJwaCddospCMUognsNg2o8_gO-gjTdxT4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "187783568519-29qd1r6lpnbn9cqbcidkn22ssat8iur0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
