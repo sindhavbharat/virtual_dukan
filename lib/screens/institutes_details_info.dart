@@ -105,13 +105,13 @@ class _InstitutesDetailsInfoState extends State<InstitutesDetailsInfo>
           builder: (BuildContext context,
               AsyncSnapshot<ProductListModel> snapshot) {
             if (!snapshot.hasData) {
-              return isShowData?const SizedBox(
+              return isShowData ? const SizedBox(
                 child: Center(
                     child: CircularProgressIndicator(
                       strokeWidth: 5,
                       backgroundColor: Colors.blue,
                     )),
-              ):SizedBox();
+              ) : SizedBox();
             } else {
 //              double different = double.parse(snapshot.data.course.mrpPrice) -
 //                  double.parse(snapshot.data.course.salePrice);
@@ -449,6 +449,7 @@ class _InstitutesDetailsInfoState extends State<InstitutesDetailsInfo>
       ).timeout(Duration(hours: 1));
 //      _progressDialog.hide();
       print('institutes details ${jsonDecode(response.body)}');
+      print('sttus code ${response.statusCode}');
       if (response.statusCode == 200) {
         return ProductListModel.fromJson(jsonDecode(response.body));
       } else if (response.statusCode == 401) {
@@ -464,6 +465,21 @@ class _InstitutesDetailsInfoState extends State<InstitutesDetailsInfo>
           btnOkOnPress: () {
             preferences.clear();
             exit(0);
+          },
+        )
+          ..show();
+      }else if (response.statusCode == 404) {
+        AwesomeDialog(
+          context: context,
+          dialogType: DialogType.WARNING,
+          animType: AnimType.BOTTOMSLIDE,
+          title: UtilsData.kOops,
+          desc: 'No Record Found',
+          btnCancel: null,
+          dismissOnBackKeyPress: false,
+          dismissOnTouchOutside: false,
+          btnOkOnPress: () {
+            Navigator.of(context).pop();
           },
         )
           ..show();

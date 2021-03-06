@@ -154,7 +154,7 @@ class UtilsData {
   static const kErrorHey = 'Hey';
   static const kErrorPurchaseCourse = 'Purchase & Start Learning';
   static const kEnterOtp = 'Enter OTP';
-  static const kOtpSentMsg = 'OTP Send Your MailId';
+  static const kOtpSentMsg = 'OTP Sent Successfully!';
   static const kSuccessRegistration = 'Student Registration Successfully';
 
   // ErrorMsg

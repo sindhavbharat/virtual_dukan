@@ -807,6 +807,42 @@ class _FiltersScreenState extends State<FiltersScreen> {
                     color: DesignCourseAppTheme.darkerText,
                   ),
                 ), //
+                subtitle:Padding(
+                  padding: const EdgeInsets.only(top:8.0,bottom:8.0,),
+                  child: Text(
+                    listData[index]['common_product']==1?'Common Product':listData[index]['subject_name'],
+                    style: TextStyle(
+                      fontSize: 14,
+                      letterSpacing:
+                      0.27,
+                      color:
+                      DesignCourseAppTheme
+                          .nearlyBlue,
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                ),
+                // subtitle:Padding(
+                //   padding: const EdgeInsets.only(top:8.0,bottom:8.0,),
+                //   child: Text(
+                //     snapshot
+                //         .data
+                //         .products[index]
+                //         .commonProduct==1?'Common Product':snapshot
+                //         .data
+                //         .products[index]
+                //         .subjectName,
+                //     style: TextStyle(
+                //       fontSize: 14,
+                //       letterSpacing:
+                //       0.27,
+                //       color:
+                //       DesignCourseAppTheme
+                //           .nearlyBlue,
+                //     ),
+                //     textAlign: TextAlign.left,
+                //   ),
+                // ),
 //                          subtitle: Text(
 //                            listData[index]['description'],
 //                            style: TextStyle(
@@ -1011,7 +1047,21 @@ class _FiltersScreenState extends State<FiltersScreen> {
     if (list != null) {
       setState(() {
         selectedPublisherName = List.from(list);
-        print('selected Type of course list $selectedPublisherName');
+        print('selected publisher list $selectedPublisherName');
+        for (int i = 0; i < selectedPublisherName.length; i++) {
+          // try {
+          //   print(
+          //       'bharat ${listStandardId.elementAt(listStandardName.indexOf(selectedStandardList[i]))}');
+          // } catch (exception) {
+          //   print('exception ${exception.toString()}');
+          // }
+
+          selectedPublisherId.insert(
+              i,
+              listPublisherId.elementAt(
+                  listPublisherName.indexOf(selectedPublisherName[i])));
+        }
+
       });
     }
     _progressDialog.show();
@@ -1185,7 +1235,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
           'medium_id': selectedMediumIdList,
           'stream_id': selectedStreamIdList,
           // 'type_of_course': selectedTypeOfCourse,
-          'publisher_id':selectedTypeOfCourse,
+          'publisher_id':selectedPublisherId,
         },
       ),
     );
@@ -1196,7 +1246,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
         'standard_id': selectedStandardIdList,
         'medium_id': selectedMediumIdList,
         'stream_id': selectedStreamIdList,
-        'type_of_course': selectedTypeOfCourse,
+        'publisher_id': selectedPublisherId,
       },
     )}');
     Navigator.of(context).pop();
@@ -1218,6 +1268,9 @@ class _FiltersScreenState extends State<FiltersScreen> {
           'mrp_price': listCourses[i]['mrp_price'],
           'sell_price': listCourses[i]['sell_price'],
           'thumbnail_url': listCourses[i]['thumbnail_url'],
+          'common_product':listCourses[i]['common_product'],
+          'subject_name':listCourses[i]['subject_name']
+
         };
         listData.add(coursesData);
       }

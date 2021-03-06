@@ -178,7 +178,7 @@ class _CartDetailsState extends State<CartDetails> {
                                             Text(
                                               'Subtotal',
                                             ),
-                                            Text('\₹$_subTotal',),
+                                            Text('\₹${removeDecimalZeroFormat(_subTotal)}',),
                                           ],
                                         ),
                                       ),
@@ -190,7 +190,7 @@ class _CartDetailsState extends State<CartDetails> {
                                           children: <Widget>[
                                             Text('Discount'),
                                             Text(
-                                              ('\₹$_discount'),
+                                              ('\₹${removeDecimalZeroFormat(_discount)}'),
                                               style: TextStyle(fontSize: 14),
                                             ),
                                           ],
@@ -204,7 +204,7 @@ class _CartDetailsState extends State<CartDetails> {
                                           children: <Widget>[
                                             Text('Fix Shipping Charges'),
                                             Text(
-                                              ('\₹$_charges'),
+                                              ('\₹${removeDecimalZeroFormat(_charges)}'),
                                               style: TextStyle(fontSize: 14),
                                             ),
                                           ],
@@ -224,7 +224,7 @@ class _CartDetailsState extends State<CartDetails> {
                                                       fontWeight: FontWeight.bold),
                                                 ),
                                                 Text(
-                                                  ('\₹$amount'),
+                                                  ('\₹${removeDecimalZeroFormat(amount)}'),
                                                   style: TextStyle(
                                                       fontWeight: FontWeight.bold),
                                                 ),
@@ -1113,6 +1113,15 @@ class _CartDetailsState extends State<CartDetails> {
     } else {
       throw Exception('Failed to load course list');
     }
+  }
+
+  String removeDecimalZeroFormat(double n) {
+    if(n!=null){
+      return n.toStringAsFixed(n.truncateToDouble() == n ? 0 : 1);
+    }else{
+      return '';
+    }
+
   }
 
 //    print('hash data $hashData');

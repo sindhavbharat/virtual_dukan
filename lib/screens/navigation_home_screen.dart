@@ -115,7 +115,7 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
       } else if (drawerIndex == DrawerIndex.Invite) {
         //without an image
         SocialShare.shareOptions(
-            "https://play.google.com/store/apps/details?id=com.virtualabhyas.progress_report");
+            "https://play.google.com/store/apps/details?id=com.n2c.virtual_dukan");
       } else if (drawerIndex == DrawerIndex.About) {
         Navigator.of(context)
             .push(MaterialPageRoute(builder: (context) => AboutUs()));
